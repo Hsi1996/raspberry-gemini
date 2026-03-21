@@ -1,2 +1,2 @@
-# raspberry-gemini18
+# raspberry-gemini
 test
