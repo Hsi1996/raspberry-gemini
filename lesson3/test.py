@@ -70,9 +70,8 @@ class Filter:
         回傳：
             修改後（或原本）的 body，會繼續傳給 AI 處理
         """
-        print(f"inlet:{__name__}")
-        print(f"inlet:body:{body}")
-        print(f"inlet:user:{__user__}")
+        print("使用者輸入")
+        
 
         # 只對 "user" 和 "admin" 角色進行輪數限制檢查
         if __user__.get("role", "admin") in ["user", "admin"]:
@@ -102,8 +101,7 @@ class Filter:
         回傳：
             修改後（或原本）的 body，會顯示給使用者
         """
-        print(f"outlet:{__name__}")
-        print(f"outlet:body:{body}")
-        print(f"outlet:user:{__user__}")
+        print("模型輸出")
+        
 
         return body  # 回傳（可能已修改的）回應內容
