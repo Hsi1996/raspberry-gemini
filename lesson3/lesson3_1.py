@@ -44,24 +44,28 @@ class Filter:
 
     def outlet(self, body: dict, __user__: Optional[dict] = None) -> dict:
         # 取得使用者最後輸入的內容
-        messages = body.get("messages", [])
-        user_input = ""
-        assistant_output = ""
+        # messages = body.get("messages", [])
+        # user_input = ""
+        # assistant_output = ""
 
-        for msg in reversed(messages):
-            if msg.get("role") == "assistant" and not assistant_output:
-                assistant_output = msg.get("content", "")
-            elif msg.get("role") == "user" and not user_input:
-                user_input = msg.get("content", "")
-            if user_input and assistant_output:
-                break
+        # for msg in reversed(messages):
+        #     if msg.get("role") == "assistant" and not assistant_output:
+        #         assistant_output = msg.get("content", "")
+        #     elif msg.get("role") == "user" and not user_input:
+        #         user_input = msg.get("content", "")
+        #     if user_input and assistant_output:
+        #         break
 
-        print("使用者最後輸入:", user_input)        
+        # print("使用者最後輸入:", user_input)        
 
-        # 永遠將輸出覆蓋為 Hello! World!
-        for msg in messages:
+        # # 永遠將輸出覆蓋為 Hello! World!
+        # for msg in messages:
+        #     if msg.get("role") == "assistant":
+        #         msg["content"] = "Hello! Charveil!💕"
+        
+        for msg in body.get("messages", []):
             if msg.get("role") == "assistant":
-                msg["content"] = "Hello! Charveil!💕"
+                msg["content"] = msg.get("content", "") + "\n\n天天開心"
         
-        
+
         return body
