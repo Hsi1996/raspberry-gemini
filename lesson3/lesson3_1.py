@@ -43,9 +43,7 @@ class Filter:
         return body
 
     def outlet(self, body: dict, __user__: Optional[dict] = None) -> dict:
-        #print("模型輸出的內容:")
-        #print(body.get("messages", [])[-1].get("content", "") if body.get("messages") else "")
-         # 取得使用者最後輸入的內容
+        # 取得使用者最後輸入的內容
         messages = body.get("messages", [])
         user_input = ""
         assistant_output = ""
@@ -64,6 +62,6 @@ class Filter:
         for msg in messages:
             if msg.get("role") == "assistant":
                 msg["content"] = "Hello! Charveil!💕"
-
-
+        
+        
         return body
